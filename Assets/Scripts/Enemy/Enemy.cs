@@ -5,8 +5,9 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private int _health;
     [SerializeField] private int _reward;
+    [SerializeField] public int health { get; private set; }
+    
 
     private Player _target;
 
@@ -22,9 +23,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        _health -= damage;
+        health -= damage;
 
-        if(_health <= 0)
+        if(health <= 0)
         {
             Dying?.Invoke(this);
             Destroy(gameObject);
