@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         _target = target;
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         health -= damage;
 

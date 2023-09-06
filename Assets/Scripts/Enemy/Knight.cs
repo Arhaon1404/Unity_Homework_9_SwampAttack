@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class Knight : Enemy
 {
-    public virtual void TakeDamage(int damage)
-    { 
-        
+    private DefenceState _defenceState;
+    public bool IsDamaged { get; private set; }
+
+    public override void TakeDamage(int damage)
+    {
+        if (IsDamaged == false)
+        {
+            base.TakeDamage(damage);
+            IsDamaged = true;
+        }
+        else 
+        {
+            _defenceState.DamageBlock();
+        }
     }
 }

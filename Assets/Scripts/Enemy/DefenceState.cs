@@ -5,17 +5,34 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class DefenceState : State
 {
-    [SerializeField] private int _waitingTime;
+    public float ElapsedTime { get; private set; }
 
     private Animator _animator;
 
-    void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
+        ElapsedTime = 0;
     }
 
-    void Update()
+    private void OnEnable()
     {
-        
+        _animator.Play("Idle");
+    }
+
+    private void OnDisable()
+    {
+        _animator.StopPlayback();
+    }
+
+    private void Update()
+    {
+        ElapsedTime += Time.deltaTime;
+    }
+
+    public void DamageBlock()
+    {
+        _animator.Play("Defence");
+        ElapsedTime = 0;
     }
 }

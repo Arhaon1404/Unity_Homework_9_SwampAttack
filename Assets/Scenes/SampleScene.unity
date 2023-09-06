@@ -5828,6 +5828,8 @@ GameObject:
   - component: {fileID: 1650161868}
   - component: {fileID: 1650161867}
   - component: {fileID: 1650161866}
+  - component: {fileID: 1650161871}
+  - component: {fileID: 1650161870}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -5961,7 +5963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e56160763d09c419c7ad13b81fdd46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetState: {fileID: 0}
+  _targetState: {fileID: 1650161871}
 --- !u!114 &1650161867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5989,7 +5991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d888ba0954ee3284f9782ccc02102922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstState: {fileID: 0}
+  _firstState: {fileID: 1650161867}
 --- !u!114 &1650161869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6003,6 +6005,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _reward: 5
+--- !u!114 &1650161870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650161861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c049de7c2a26a4fa534debd25c5945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 0}
+--- !u!114 &1650161871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650161861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e83f51076be6749ac4bd9a55776f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions:
+  - {fileID: 1650161870}
+  _waitingTime: 5
 --- !u!1 &1662476656
 GameObject:
   m_ObjectHideFlags: 0
