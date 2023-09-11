@@ -14,10 +14,14 @@ GameObject:
   - component: {fileID: 4756432946993985296}
   - component: {fileID: 4756432946993985289}
   - component: {fileID: 4756432946993985301}
-  - component: {fileID: 4756432946993985298}
+  - component: {fileID: 3884558278784746344}
   - component: {fileID: 4756432946993985299}
   - component: {fileID: 4756432946993985302}
   - component: {fileID: 4756432946993985303}
+  - component: {fileID: 3628877338693337573}
+  - component: {fileID: -7903298460122832019}
+  - component: {fileID: 1687075542235161911}
+  - component: {fileID: 888853239196702408}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -153,6 +157,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 3
   _reward: 5
+  _onDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4756432946993985299}
+        m_TargetAssemblyTypeName: TakingDamageTransition, Assembly-CSharp
+        m_MethodName: HealthInfoUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _isBlocked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4756432946993985302}
+        m_TargetAssemblyTypeName: DefenceState, Assembly-CSharp
+        m_MethodName: DamageBlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4756432946993985303}
+        m_TargetAssemblyTypeName: WaitingTransition, Assembly-CSharp
+        m_MethodName: ResetElapsedTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4756432946993985301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,8 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d888ba0954ee3284f9782ccc02102922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstState: {fileID: 4756432946993985298}
---- !u!114 &4756432946993985298
+  _firstState: {fileID: 3884558278784746344}
+--- !u!114 &3884558278784746344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,7 +226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 4756432946993985299}
-  _speed: 2
+  - {fileID: 3628877338693337573}
+  _speed: 4
 --- !u!114 &4756432946993985299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,5 +267,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c049de7c2a26a4fa534debd25c5945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetState: {fileID: 0}
+  _targetState: {fileID: 3884558278784746344}
   _waitingTime: 5
+  _timePassed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4756432946993985289}
+        m_TargetAssemblyTypeName: Knight, Assembly-CSharp
+        m_MethodName: StateChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3628877338693337573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4756432946993985308}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b950e591614552b44ba3dd70c1144451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: -7903298460122832019}
+  _transitionRange: 1
+  _rangetSpread: 0.5
+--- !u!114 &-7903298460122832019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4756432946993985308}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1970a62ac620a2d49803a8f71fd59474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions:
+  - {fileID: 1687075542235161911}
+  _damage: 1
+  _delay: 0.2
+--- !u!114 &1687075542235161911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4756432946993985308}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3500dddeaec8b4aa67fb89a9c14c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 888853239196702408}
+--- !u!114 &888853239196702408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4756432946993985308}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965b9498fea8e4f44a2106ed5a2ba656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions: []

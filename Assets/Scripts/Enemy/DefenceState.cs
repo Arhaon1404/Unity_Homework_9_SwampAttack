@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 public class DefenceState : State
 {
-    public float ElapsedTime { get; private set; }
-
     private Animator _animator;
+
+    private float _lastBlockTime;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        ElapsedTime = 0;
     }
 
     private void OnEnable()
@@ -22,17 +22,22 @@ public class DefenceState : State
 
     private void OnDisable()
     {
-        _animator.StopPlayback();
+        _animator.Play("Run");
     }
 
-    private void Update()
+    private void Update() 
     {
-        ElapsedTime += Time.deltaTime;
+        if (_lastBlockTime <= 0)
+        {
+            _animator.Play("Idle");
+        }
+
+        _lastBlockTime -= Time.deltaTime;
     }
 
     public void DamageBlock()
     {
+        _lastBlockTime = 0.20f;
         _animator.Play("Defence");
-        ElapsedTime = 0;
     }
 }

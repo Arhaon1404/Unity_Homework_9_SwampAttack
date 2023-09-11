@@ -7,20 +7,23 @@ public class TakingDamageTransition : Transition
     private int _enemyHealth;
     private int _damageThreshold;
 
-    public void Start()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         _enemyHealth = GetComponent<Knight>().Health;
         _damageThreshold = _enemyHealth - 1;
     }
 
     public void Update()
     {
-        _enemyHealth = GetComponent<Knight>().Health;
-
         if (_enemyHealth == _damageThreshold)
         {
-            Debug.Log("OK");
             NeedTransit = true;
         }
+    }
+
+    public void HealthInfoUpdate()
+    {
+        _enemyHealth = GetComponent<Knight>().Health;
     }
 }

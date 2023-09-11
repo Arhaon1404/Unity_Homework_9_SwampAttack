@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Knight : Enemy
 {
-    private DefenceState _defenceState;
     public bool IsDamaged { get; private set; }
+
+    [SerializeField] private UnityEvent _onDamaged;
+    [SerializeField] private UnityEvent _isBlocked;
 
     public void Start()
     {
@@ -18,10 +21,16 @@ public class Knight : Enemy
         {
             base.TakeDamage(damage);
             IsDamaged = true;
+            _onDamaged.Invoke();
         }
-        else 
-        {
-            
+        else
+        { 
+            _isBlocked.Invoke();
         }
+    }
+
+    public void StateChange()
+    {
+        IsDamaged = false;
     }
 }
