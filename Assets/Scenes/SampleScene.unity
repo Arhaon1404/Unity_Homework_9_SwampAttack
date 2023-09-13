@@ -3260,7 +3260,7 @@ MonoBehaviour:
   _waves:
   - Template: {fileID: 4756432946993985308, guid: 271693f42de86784db7282bb5d96f76b, type: 3}
     Delay: 2
-    Count: 3
+    Count: 1
   - Template: {fileID: 3207617679987409861, guid: 7e0229517982a7d4fbfc9c77ad2f24df, type: 3}
     Delay: 0.5
     Count: 10
