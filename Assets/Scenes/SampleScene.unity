@@ -520,6 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapons:
   - {fileID: 7070955490913520096, guid: 82b0800c64bee5e43b46d2809dbf3131, type: 3}
+  - {fileID: 6541757675532429043, guid: 054a98cdda18cb444a0c76e7441f12d9, type: 3}
   _player: {fileID: 1456784572}
   _template: {fileID: -8952122256126499699, guid: 165126ac0c26d674c9f4cdc10e70f55c, type: 3}
   _itemContainer: {fileID: 1889074477}
@@ -3258,12 +3259,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waves:
-  - Template: {fileID: 4756432946993985308, guid: 271693f42de86784db7282bb5d96f76b, type: 3}
-    Delay: 2
-    Count: 1
   - Template: {fileID: 3207617679987409861, guid: 7e0229517982a7d4fbfc9c77ad2f24df, type: 3}
-    Delay: 0.5
-    Count: 10
+    Delay: 2
+    Count: 5
+  - Template: {fileID: 4756432946993985308, guid: 271693f42de86784db7282bb5d96f76b, type: 3}
+    Delay: 1
+    Count: 2
   _spawnPoint: {fileID: 852235163}
   _player: {fileID: 1456784572}
 --- !u!4 &852235163
@@ -4312,7 +4313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6707214, y: 0.8511976}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 27.000004, y: 13}
+  m_AnchoredPosition: {x: 26.999998, y: 13.000003}
   m_SizeDelta: {x: 57.48999, y: 31.199997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361274205
@@ -4447,7 +4448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.035, y: 0.13555685}
   m_AnchorMax: {x: 0.24758765, y: 0.8497114}
-  m_AnchoredPosition: {x: 1.3000488, y: 1}
+  m_AnchoredPosition: {x: 1.3001099, y: 1}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1365813333
@@ -5165,7 +5166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _weapons:
-  - {fileID: 7070955490913520096, guid: 82b0800c64bee5e43b46d2809dbf3131, type: 3}
+  - {fileID: 6541757675532429043, guid: 054a98cdda18cb444a0c76e7441f12d9, type: 3}
   _shootPoint: {fileID: 1965363132}
 --- !u!1 &1496237992
 GameObject:
