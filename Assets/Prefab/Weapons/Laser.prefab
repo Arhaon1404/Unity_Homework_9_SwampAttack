@@ -50,4 +50,4 @@ MonoBehaviour:
   _isBuyed: 0
   Bullet: {fileID: 0}
   _damage: 3
-  _waitingTime: 3
+  _waitingTime: 0.1
