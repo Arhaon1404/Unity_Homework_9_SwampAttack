@@ -13,7 +13,7 @@ public class Laser : Weapon
     {
         RaycastHit2D Hit = Physics2D.Raycast(shootPoint.position, Vector2.left);
 
-        Debug.DrawRay(shootPoint.position, Vector2.left * 15, Color.red, _waitingTime);
+        Debug.DrawRay(shootPoint.position, Vector2.right , Color.red, _waitingTime);
 
         if (Hit.collider.gameObject.TryGetComponent(out Enemy enemy))
         {
