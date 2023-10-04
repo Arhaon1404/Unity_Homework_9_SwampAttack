@@ -4,19 +4,19 @@ using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.GraphicsBuffer;
 
+//[RequireComponent(typeof(LaserRenderer))]
 public class Laser : Weapon
 {
     [SerializeField] private int _damage;
-    [SerializeField] private float _waitingTime;
 
     public override void Shoot(Transform shootPoint)
     {
-        RaycastHit2D Hit = Physics2D.Raycast(shootPoint.position, Vector2.left);
+        RaycastHit2D hit = Physics2D.Raycast(shootPoint.position, Vector2.left);
 
-        Debug.DrawRay(shootPoint.position, Vector2.right , Color.red, _waitingTime);
 
-        if (Hit.collider.gameObject.TryGetComponent(out Enemy enemy))
+        if (hit.collider.gameObject.TryGetComponent(out Enemy enemy))
         {
+            shootPoint.GetComponent<LaserRenderer>().RunCoroutine(shootPoint, hit);
             enemy.TakeDamage(_damage);
         }
     }
